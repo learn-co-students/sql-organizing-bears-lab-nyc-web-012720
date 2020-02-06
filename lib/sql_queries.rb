@@ -1,4 +1,4 @@
-require 'pry'
+require "pry"
 def selects_all_female_bears_return_name_and_age
   "SELECT name, age FROM bears WHERE gender = 'F';"
 end
@@ -20,9 +20,8 @@ def select_youngest_bear_and_returns_name_and_age
 end
 
 def selects_most_prominent_color_and_returns_with_count
-  binding.pry
-  "SELECT color, COUNT(color = 'dark brown') FROM bears"
-
+   "SELECT bears.color, COUNT(bears.color) FROM bears GROUP BY bears.color ORDER BY COUNT(*) DESC LIMIT 1;"
+   binding.pry
 end
 
 def counts_number_of_bears_with_goofy_temperaments
